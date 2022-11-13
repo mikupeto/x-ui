@@ -47,17 +47,17 @@
     <p>端口: <a-tag color="green">[[ dbInbound.port ]]</a-tag></p>
 
     <template v-if="dbInbound.isVMess" v-for="(vmessobj, index) in inbound.settings.vmesses">
-        <p>uuid: <a-tag color="green">[[ vmessobj.uuid ]]</a-tag></p>
+        <p>uuid: <a-tag color="green">[[ vmessobj.id ]]</a-tag></p>
         <p>alterId: <a-tag color="green">[[ vmessobj.alterId ]]</a-tag></p>
     </template>
 
     <template v-if="dbInbound.isVLess" v-for="(vlessobj, index) in inbound.settings.vlesses">
-        <p>uuid: <a-tag color="green">[[ vlessobj.uuid ]]</a-tag></p>
+        <p>uuid: <a-tag color="green">[[ vlessobj.id ]]</a-tag></p>
         <p v-if="inbound.isXTls">flow: <a-tag color="green">[[ vlessobj.flow ]]</a-tag></p>
     </template>
 
-    <template v-if="dbInbound.isTrojan">
-        <p>密码: <a-tag color="green">[[ inbound.password ]]</a-tag></p>
+    <template v-if="dbInbound.isTrojan" v-for="(trojanobj, index) in inbound.settings.clients">
+        <p>密码: <a-tag color="green">[[ trojanobj.password ]]</a-tag></p>
     </template>
 
     <template v-if="dbInbound.isSS">
