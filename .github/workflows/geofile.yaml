@@ -3,7 +3,7 @@ name: Fetch Geofile to latest version
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 11 * * *"
+    - cron: "30 22 * * *"
 
 jobs:
   build:
