@@ -25,7 +25,7 @@
 <!-- trojan fallbacks -->
 <a-form v-for="(fallback, index) in inbound.settings.fallbacks" layout="inline">
     <a-divider>
-        fallback[[ index + 1 ]]
+        fallback [[ index + 1 ]]
         <a-icon type="delete" @click="() => inbound.settings.delTrojanFallback(index)"
                 style="color: rgb(255, 77, 79);cursor: pointer;"/>
     </a-divider>
