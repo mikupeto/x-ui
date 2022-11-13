@@ -22,8 +22,8 @@
     <a-form-item label="证书">
         <a-radio-group v-model="inbound.stream.tls.certs[0].useFile"
                        button-style="solid">
-            <a-radio-button :value="true">certificate file path</a-radio-button>
-            <a-radio-button :value="false">certificate file content</a-radio-button>
+            <a-radio-button :value="true">证书文件路径</a-radio-button>
+            <a-radio-button :value="false">证书文件内容</a-radio-button>
         </a-radio-group>
     </a-form-item>
     <template v-if="inbound.stream.tls.certs[0].useFile">
