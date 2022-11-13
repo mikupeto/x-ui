@@ -1,6 +1,6 @@
 # x-ui
 
-支持多协议多用户的 xray 面板
+支持多协议、多用户及单端口多用户的 xray 面板
 
 # 功能介绍
 
@@ -133,11 +133,3 @@ TG通知内容：
 ```
 x-ui v2-ui
 ```
-
-## issue 关闭
-
-各种小白问题看得血压很高
-
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/mikupeto/x-ui.svg)](https://starchart.cc/mikupeto/x-ui)
