@@ -1,10 +1,24 @@
 {{define "form/trojan"}}
 <a-form layout="inline">
+    <a-form-item label="client">
+        <a-row>
+            <a-button type="primary" size="small" @click="inbound.settings.addTrojan()">
+                +
+            </a-button>
+        </a-row>
+    </a-form-item>
+</a-form>
+<a-form v-for="(trojanobj, index) in inbound.settings.clients" layout="inline">
+    <a-divider>
+        User [[ index + 1 ]]
+        <a-icon v-if="index != 0" type="delete" @click="() => inbound.settings.delTrojan(index)"
+                style="color: rgb(255, 77, 79);cursor: pointer;"/>
+    </a-divider>
     <a-form-item label="密码">
-        <a-input v-model.trim="inbound.settings.clients[0].password"></a-input>
+        <a-input v-model.trim="trojanobj.password"></a-input>
     </a-form-item>
     <a-form-item v-if="inbound.xtls" label="flow">
-        <a-select v-model="inbound.settings.clients[0].flow" style="width: 150px">
+        <a-select v-model="trojanobj.flow" style="width: 150px">
             <a-select-option value="">无</a-select-option>
             <a-select-option v-for="key in FLOW_CONTROL" :value="key">[[ key ]]</a-select-option>
         </a-select>

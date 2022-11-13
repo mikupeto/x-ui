@@ -11,7 +11,7 @@
 <a-form v-for="(vlessobj, index) in inbound.settings.vlesses" layout="inline">
     <a-divider>
         User [[ index + 1 ]]
-        <a-icon type="delete" @click="() => inbound.settings.delVLESS(index)"
+        <a-icon v-if="index != 0" type="delete" @click="() => inbound.settings.delVLESS(index)"
                 style="color: rgb(255, 77, 79);cursor: pointer;"/>
     </a-divider>
     <a-form-item label="id">
