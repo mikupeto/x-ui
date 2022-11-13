@@ -420,7 +420,7 @@ class GrpcStreamSettings extends XrayCommonClass {
 
 class TlsStreamSettings extends XrayCommonClass {
     constructor(serverName = '',
-        certificates = [new TlsStreamSettings.Cert(), alpn = []]) {
+        certificates = [new TlsStreamSettings.Cert()], alpn = []) {
         super();
         this.server = serverName;
         this.certs = certificates;
