@@ -1210,18 +1210,12 @@ Inbound.VmessSettings = class extends Inbound.Settings {
         return this.vmesses.findIndex(vmess => vmess.id === id);
     }
 
-    addVmess(vmess) {
-        if (this.indexOfVmessById(vmess.id) >= 0) {
-            return false;
-        }
-        this.vmesses.push(vmess);
+    addVmess() {
+        this.vmesses.push(new Inbound.VmessSettings.Vmess());
     }
 
-    delVmess(vmess) {
-        const i = this.indexOfVmessById(vmess.id);
-        if (i >= 0) {
-            this.vmesses.splice(i, 1);
-        }
+    delVmess(index) {
+        this.vmesses.splice(index, 1);
     }
 
     static fromJson(json = {}) {
