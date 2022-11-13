@@ -119,8 +119,8 @@ class TcpStreamSettings extends XrayCommonClass {
         response = new TcpStreamSettings.TcpResponse(),
     ) {
         super();
-        this.type = type;
         this.acceptProxyProtocol = acceptProxyProtocol;
+        this.type = type;
         this.request = request;
         this.response = response;
     }
