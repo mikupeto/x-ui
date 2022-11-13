@@ -41,8 +41,16 @@ var i18nFS embed.FS
 
 var startTime = time.Now()
 
+var xuiBeginRunTime string
+
+var isTelegramEnable bool
+
 type wrapAssetsFS struct {
 	embed.FS
+}
+
+func GetXuiStarttime() string {
+	return xuiBeginRunTime
 }
 
 func (f *wrapAssetsFS) Open(name string) (fs.File, error) {
@@ -85,9 +93,10 @@ type Server struct {
 	server *controller.ServerController
 	xui    *controller.XUIController
 
-	xrayService    service.XrayService
-	settingService service.SettingService
-	inboundService service.InboundService
+	xrayService     service.XrayService
+	settingService  service.SettingService
+	inboundService  service.InboundService
+	telegramService service.TelegramService
 
 	cron *cron.Cron
 
@@ -295,10 +304,12 @@ func (s *Server) startTask() {
 
 	// 每 30 秒检查一次 inbound 流量超出和到期的情况
 	s.cron.AddJob("@every 30s", job.NewCheckInboundJob())
+	//每2s检查一次SSH信息
+	s.cron.AddFunc("@every 2s", func() { job.NewStatsNotifyJob().SSHStatusLoginNotify(xuiBeginRunTime) })
 	// 每一天提示一次流量情况,上海时间8点30
 	var entry cron.EntryID
-	isTgbotenabled, err := s.settingService.GetTgbotenabled()
-	if (err == nil) && (isTgbotenabled) {
+
+	if isTelegramEnable {
 		runtime, err := s.settingService.GetTgbotRuntime()
 		if err != nil || runtime == "" {
 			logger.Errorf("Add NewStatsNotifyJob error[%s],Runtime[%s] invalid,wil run default", err, runtime)
@@ -376,6 +387,21 @@ func (s *Server) Start() (err error) {
 	}
 	s.listener = listener
 
+	xuiBeginRunTime = time.Now().Format("2006-01-02 15:04:05")
+
+	isTgbotenabled, err := s.settingService.GetTgbotenabled()
+	if (err == nil) && (isTgbotenabled) {
+		isTelegramEnable = true
+
+		go func() {
+			s.telegramService.StartRun()
+			time.Sleep(time.Second * 2)
+		}()
+
+	} else {
+		isTelegramEnable = false
+	}
+
 	s.startTask()
 
 	s.httpServer = &http.Server{
@@ -391,6 +417,9 @@ func (s *Server) Start() (err error) {
 
 func (s *Server) Stop() error {
 	s.cancel()
+	if isTelegramEnable {
+		s.telegramService.StopRunAndClose()
+	}
 	s.xrayService.StopXray()
 	if s.cron != nil {
 		s.cron.Stop()
