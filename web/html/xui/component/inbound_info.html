@@ -46,14 +46,14 @@
     <p>地址: <a-tag color="blue">[[ dbInbound.address ]]</a-tag></p>
     <p>端口: <a-tag color="green">[[ dbInbound.port ]]</a-tag></p>
 
-    <template v-if="dbInbound.isVMess">
-        <p>uuid: <a-tag color="green">[[ inbound.uuid ]]</a-tag></p>
-        <p>alterId: <a-tag color="green">[[ inbound.alterId ]]</a-tag></p>
+    <template v-if="dbInbound.isVMess" v-for="(vmessobj, index) in inbound.settings.vmesses">
+        <p>uuid: <a-tag color="green">[[ vmessobj.uuid ]]</a-tag></p>
+        <p>alterId: <a-tag color="green">[[ vmessobj.alterId ]]</a-tag></p>
     </template>
 
-    <template v-if="dbInbound.isVLess">
-        <p>uuid: <a-tag color="green">[[ inbound.uuid ]]</a-tag></p>
-        <p v-if="inbound.isXTls">flow: <a-tag color="green">[[ inbound.flow ]]</a-tag></p>
+    <template v-if="dbInbound.isVLess" v-for="(vlessobj, index) in inbound.settings.vlesses">
+        <p>uuid: <a-tag color="green">[[ vlessobj.uuid ]]</a-tag></p>
+        <p v-if="inbound.isXTls">flow: <a-tag color="green">[[ vlessobj.flow ]]</a-tag></p>
     </template>
 
     <template v-if="dbInbound.isTrojan">
