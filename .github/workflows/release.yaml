@@ -19,7 +19,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          draft: true
+          draft: false
           prerelease: false
   linuxamd64build:
     name: build x-ui amd64 version
