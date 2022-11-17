@@ -6,7 +6,7 @@ RUN go build main.go
 
 FROM debian:11-slim
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ca-certificates && \
+    apt-get install -y --no-install-recommends ca-certificates curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 WORKDIR /root
