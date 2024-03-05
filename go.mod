@@ -15,7 +15,7 @@ require (
 	github.com/xtls/xray-core v1.8.8
 	go.uber.org/atomic v1.11.0
 	golang.org/x/text v0.14.0
-	google.golang.org/grpc v1.62.0
+	google.golang.org/grpc v1.62.1
 	gorm.io/driver/sqlite v1.5.5
 	gorm.io/gorm v1.25.7
 )
@@ -46,7 +46,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.1.1 // indirect
 	github.com/pires/go-proxyproto v0.7.0 // indirect
-	github.com/sagernet/sing v0.3.4 // indirect
+	github.com/sagernet/sing v0.3.5 // indirect
 	github.com/tklauser/go-sysconf v0.3.13 // indirect
 	github.com/tklauser/numcpus v0.7.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
@@ -56,7 +56,7 @@ require (
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240304161311-37d4d3c04a78 // indirect
-	google.golang.org/protobuf v1.32.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240304212257-790db918fca8 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
