@@ -127,8 +127,6 @@ github.com/v2fly/ss-bloomring v0.0.0-20210312155135-28617310f63e h1:5QefA066A1tF
 github.com/vishvananda/netlink v1.2.1-beta.2.0.20230316163032-ced5aaba43e3 h1:tkMT5pTye+1NlKIXETU78NXw0fyjnaNHmJyyLyzw8+U=
 github.com/vishvananda/netns v0.0.4 h1:Oeaw1EM2JMxD51g9uhtC0D7erkIjgmj8+JZc26m1YX8=
 github.com/xtls/reality v0.0.0-20240712055506-48f0b2d5ed6d h1:+B97uD9uHLgAAulhigmys4BVwZZypzK7gPN3WtpgRJg=
-github.com/xtls/xray-core v1.8.17 h1:T+A/hkBB33P0sEGXDiuKrQMZUOYxbZ84JlsYfyRiK8w=
-github.com/xtls/xray-core v1.8.17/go.mod h1:qEVGJD2suPN7EArG3r5EX6pYGV0QLiSRTlDMn0paJkc=
 github.com/xtls/xray-core v1.8.18 h1:o4SnyQ78vh5o9dp3NoIKwEeN7AUWlEGawQ5PkogTC1w=
 github.com/xtls/xray-core v1.8.18/go.mod h1:z7D4GwOXWwque0B5DJ+/+eGEVE4V5kFRhl0qbecMeY0=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
